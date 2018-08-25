@@ -8,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "homepage": "",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "ipfs-api": "^24.0.1"
   }
 }
