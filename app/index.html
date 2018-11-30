@@ -1,11 +1,129 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Embark</title>
-    <link rel="stylesheet" href="css/app.css">
-    <script src="js/app.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>De - Music</title>
   </head>
-  <body>
-    <h3>Welcome to Embark!</h3>
-    <p>See the <a href="http://embark.readthedocs.io/en/latest/index.html" target="_blank">Embark's documentation</a> to see what you can do with Embark!</p>
+
+  <body ondragover="event.preventDefault()">
+    <header>
+      <!-- <img width=200 src="images/ipfs-logo.svg" alt="IPFS" /> -->
+      <h1>De - Music</h1>
+    </header>
+
+    <main>
+      <div class="box node">
+        <h2>User Information</h2>
+
+        <div>
+          <h3>Name</h3>
+          <span class="user-id"></span>
+        </div>
+
+        <div>
+          <h3>Wallet</h3>
+          <ul class="user-addresses"></ul>
+        </div>
+
+        <div>
+          <h3>Logs</h3>
+          <div>
+            <pre id="logs" class="log1 success">Initializing node...</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div id="expSongs" class="box" ondragover="event.preventDefault()">
+          <h2>Explore Songs</h2>
+
+          <table id="file-explore">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Hash</th>
+                <th>Downloads</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="empty-row">
+                <td colspan="4">You have not uploaded any songs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="mySongs" class="box disabled">
+          <h2>My songs</h2>
+
+          <div class="input-button">
+            <input id="multiaddr-input" type="text" placeholder="Song Hash" disabled />
+            <button id="buy-btn" disabled>Buy</button>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Purchased Songs</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="files" class="box disabled" ondragover="event.preventDefault()">
+        <h2>My Creations</h2>
+
+        <div class="input-button">
+          <input id="multihash-input" type="text" placeholder="Multihash" disabled hidden />
+          <button id="fetch-btn" type="button" disabled hidden>Fetch</button>
+        </div>
+
+
+        <div class="input-button">
+          <input id="songName" type="text" placeholder="Song Name" />
+          <input id="songPrice" type="number" placeholder="Price (Eth)" />
+        </div>
+
+        <div>
+          <div>
+            <pre id="logs" class="log2 success">Awaiting upload...</pre>
+          </div>
+        </div>
+
+        <div id="drag-container">
+          <img width=100 src="images/upload.svg" alt="Upload" />
+          <p><b>Drag &amp; drop</b> a song to upload it.</p>
+        </div>
+
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+
+        <table id="file-history">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Hash</th>
+              <th>Downloads</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="empty-row">
+              <td colspan="4">You have not uploaded any songs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <button type="button" class="contract">Deploy Contract</button>
+    <!-- The app bundled with IPFS -->
+    <script src="js/contract.js"></script>
+    <script src="js/bundle.js"></script>
   </body>
 </html>
